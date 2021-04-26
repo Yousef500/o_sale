@@ -1,8 +1,15 @@
 Rails.application.routes.draw do
+  get "sessions/new"
+  get "sessions/create"
+  get "sessions/destroy"
   get "users/new", to: "users#new", as: "new_user"
   get "/signup", to: "users#new"
   resources :users
   root "products#index"
+
+  get "/signin", to: "sessions#new"
+  post "/signin", to: "sessions#create"
+  delete "/signout", to: "sessions#destroy", as: "session"
 
   resources :products
 

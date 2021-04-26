@@ -1,0 +1,13 @@
+<% if model.errors.any? %>
+  <div id="error_explanation" >
+    <h5 class="card-title" >
+      <%= pluralize(model.errors.count, "error") %>
+      prohibited this <%= model.class.name.humanize.downcase %> from being saved
+    </h5>
+    <ul>
+      <% model.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
